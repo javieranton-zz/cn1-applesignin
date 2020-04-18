@@ -74,7 +74,7 @@ static void fireLoginEvent(ASAuthorizationAppleIDCredential *appleIDCredential) 
         fromNSString(CN1_THREAD_GET_STATE_PASS_ARG  [[NSString alloc] initWithData:appleIDCredential.authorizationCode encoding:NSUTF8StringEncoding]),
         fromNSString(CN1_THREAD_GET_STATE_PASS_ARG appleIDCredential.user),
         fromNSString(CN1_THREAD_GET_STATE_PASS_ARG appleIDCredential.email),
-        fromNSString(CN1_THREAD_GET_STATE_PASS_ARG [NSPersonNameComponentsFormatter localizedStringFromPersonNameComponents:appleIDCredential.fullName style:NSPersonNameComponentsFormatterStyleMedium options:NSPersonNameComponentsFormatterPhonetic]),
+        fromNSString(CN1_THREAD_GET_STATE_PASS_ARG [NSString stringWithFormat:@"%@ %@", appleIDCredential.fullName.givenName, appleIDCredential.fullName.familyName]),
         fromNSString(CN1_THREAD_GET_STATE_PASS_ARG @"Authorized")
     );
 }

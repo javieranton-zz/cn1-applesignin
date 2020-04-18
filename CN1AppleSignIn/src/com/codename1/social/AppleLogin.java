@@ -22,10 +22,8 @@ import com.codename1.ui.FontImage;
 import com.codename1.ui.Image;
 import com.codename1.ui.plaf.RoundRectBorder;
 import com.codename1.ui.plaf.Style;
-import com.codename1.util.AsyncResource;
 import com.codename1.util.Base64;
 import java.io.IOException;
-import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.Hashtable;
@@ -303,7 +301,7 @@ public class AppleLogin extends Login {
             System.out.println("Decoded bytes: "+Arrays.toString(decodedBytes));
             idToken = new String(decodedBytes, "UTF-8");
             JSONParser parser = new JSONParser();
-            return parser.parseJSON(new StringReader(idToken));
+            return parser.parseJSON(new com.codename1.util.regex.StringReader(idToken));
         } catch (UnsupportedEncodingException ex) {
             throw new RuntimeException(ex);
         }
